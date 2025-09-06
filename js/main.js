@@ -3,9 +3,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize all modules
     initNavigation();
     initScrollEffects();
-    initModal();
     initAnimations();
-    initAnalytics();
+    initProductPagination();
+    initTestimonialsCarousel();
+    initContactForm();
 });
 
 // Navigation functionality
@@ -77,82 +78,6 @@ function initScrollEffects() {
     }
 }
 
-// Modal functionality
-function initModal() {
-    const modal = document.getElementById('newsletter-modal');
-    const closeBtn = document.querySelector('.close');
-    
-    if (modal && closeBtn) {
-        closeBtn.addEventListener('click', function() {
-            modal.style.display = 'none';
-        });
-
-        window.addEventListener('click', function(event) {
-            if (event.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
-
-        // Newsletter form submission
-        const newsletterForm = document.querySelector('.newsletter-form');
-        if (newsletterForm) {
-            newsletterForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const email = this.querySelector('input[type="email"]').value;
-                handleNewsletterSignup(email);
-            });
-        }
-    }
-}
-
-// Global newsletter function
-window.showNewsletter = function() {
-    const modal = document.getElementById('newsletter-modal');
-    if (modal) {
-        modal.style.display = 'block';
-    }
-};
-
-// Newsletter signup handler
-function handleNewsletterSignup(email) {
-    const form = document.querySelector('.newsletter-form');
-    const button = form.querySelector('button');
-    const originalText = button.textContent;
-    
-    // Show loading state
-    button.textContent = 'Subscribing...';
-    button.disabled = true;
-    
-    // Simulate API call
-    setTimeout(() => {
-        // Show success message
-        const successMsg = document.createElement('div');
-        successMsg.className = 'form-success';
-        successMsg.textContent = 'Thank you for subscribing! Check your email for confirmation.';
-        form.parentNode.insertBefore(successMsg, form);
-        
-        // Reset form
-        form.reset();
-        button.textContent = originalText;
-        button.disabled = false;
-        
-        // Close modal after delay
-        setTimeout(() => {
-            const modal = document.getElementById('newsletter-modal');
-            if (modal) {
-                modal.style.display = 'none';
-                successMsg.remove();
-            }
-        }, 2000);
-        
-        // Track newsletter signup
-        trackEvent('newsletter_signup', {
-            email: email,
-            timestamp: new Date().toISOString()
-        });
-    }, 1500);
-}
-
 // Scroll animations
 function initAnimations() {
     const observerOptions = {
@@ -208,116 +133,136 @@ function animateCounter(element) {
     }, 16);
 }
 
-// Analytics and tracking
-function initAnalytics() {
-    // Track page view
-    trackEvent('page_view', {
-        page: window.location.pathname,
-        title: document.title,
-        timestamp: new Date().toISOString()
-    });
-
-    // Track CTA clicks
-    document.querySelectorAll('.btn').forEach(button => {
-        button.addEventListener('click', function(e) {
-            const action = this.textContent.trim();
-            const href = this.getAttribute('href');
-            
-            trackEvent('cta_click', {
-                action: action,
-                href: href,
-                page: window.location.pathname,
-                timestamp: new Date().toISOString()
-            });
-        });
-    });
-
-    // Track form interactions
-    document.querySelectorAll('form').forEach(form => {
-        form.addEventListener('submit', function(e) {
-            const formType = this.className || 'unknown';
-            trackEvent('form_submit', {
-                form_type: formType,
-                page: window.location.pathname,
-                timestamp: new Date().toISOString()
-            });
-        });
-    });
-
-    // Track scroll depth
-    let maxScroll = 0;
-    window.addEventListener('scroll', debounce(() => {
-        const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
-        if (scrollPercent > maxScroll) {
-            maxScroll = scrollPercent;
-            if (maxScroll >= 25 && maxScroll < 50) {
-                trackEvent('scroll_depth', { depth: '25%' });
-            } else if (maxScroll >= 50 && maxScroll < 75) {
-                trackEvent('scroll_depth', { depth: '50%' });
-            } else if (maxScroll >= 75) {
-                trackEvent('scroll_depth', { depth: '75%' });
-            }
-        }
-    }, 1000));
-}
-
-// Event tracking function
-function trackEvent(eventName, properties) {
-    // Store in localStorage for demo purposes
-    // In production, send to your analytics service
-    const events = JSON.parse(localStorage.getItem('analytics_events') || '[]');
-    events.push({
-        event: eventName,
-        properties: properties,
-        timestamp: new Date().toISOString()
-    });
-    localStorage.setItem('analytics_events', JSON.stringify(events));
+// Product pagination functionality
+function initProductPagination() {
+    const viewMoreBtn = document.getElementById('view-more-btn');
+    const hiddenProducts = document.querySelectorAll('.hidden-product');
     
-    console.log('Event tracked:', eventName, properties);
-}
-
-// Utility functions
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-// Performance monitoring
-function initPerformanceMonitoring() {
-    // Track page load time
-    window.addEventListener('load', function() {
-        const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
-        trackEvent('page_performance', {
-            load_time: loadTime,
-            page: window.location.pathname
+    if (viewMoreBtn && hiddenProducts.length > 0) {
+        viewMoreBtn.addEventListener('click', function() {
+            hiddenProducts.forEach(product => {
+                product.classList.remove('hidden-product');
+                product.style.animation = 'fadeInUp 0.6s ease forwards';
+            });
+            
+            // Hide the button after showing all products
+            viewMoreBtn.style.display = 'none';
         });
-    });
-
-    // Track Core Web Vitals
-    if ('web-vital' in window) {
-        // This would integrate with real Core Web Vitals library
-        console.log('Core Web Vitals tracking enabled');
     }
 }
 
-// Initialize performance monitoring
-initPerformanceMonitoring();
+// Testimonials carousel functionality
+function initTestimonialsCarousel() {
+    const track = document.getElementById('testimonials-track');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const indicators = document.querySelectorAll('.indicator');
+    
+    if (!track || !prevBtn || !nextBtn) return;
 
-// Contact info click tracking
-document.querySelectorAll('a[href^="tel:"], a[href^="mailto:"]').forEach(link => {
-    link.addEventListener('click', function() {
-        const type = this.href.startsWith('tel:') ? 'phone' : 'email';
-        trackEvent('contact_click', {
-            type: type,
-            value: this.href,
-            page: window.location.pathname
+    let currentSlide = 0;
+    const slides = track.querySelectorAll('.testimonial-slide');
+    const totalSlides = slides.length;
+
+    // Auto-advance carousel
+    let autoSlideInterval = setInterval(nextSlide, 6000);
+
+    // Navigation event listeners
+    prevBtn.addEventListener('click', function() {
+        clearInterval(autoSlideInterval);
+        prevSlide();
+        autoSlideInterval = setInterval(nextSlide, 6000);
+    });
+
+    nextBtn.addEventListener('click', function() {
+        clearInterval(autoSlideInterval);
+        nextSlide();
+        autoSlideInterval = setInterval(nextSlide, 6000);
+    });
+
+    // Indicator clicks
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', function() {
+            clearInterval(autoSlideInterval);
+            goToSlide(index);
+            autoSlideInterval = setInterval(nextSlide, 6000);
         });
     });
-});
+
+    function prevSlide() {
+        currentSlide = currentSlide === 0 ? totalSlides - 1 : currentSlide - 1;
+        updateCarousel();
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateCarousel();
+    }
+
+    function goToSlide(index) {
+        currentSlide = index;
+        updateCarousel();
+    }
+
+    function updateCarousel() {
+        // Update slides
+        slides.forEach((slide, index) => {
+            slide.classList.toggle('active', index === currentSlide);
+        });
+
+        // Update indicators
+        indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === currentSlide);
+        });
+    }
+}
+
+// Contact form functionality
+function initContactForm() {
+    const contactForm = document.getElementById('contact-form');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = {
+                firstName: formData.get('first-name'),
+                lastName: formData.get('last-name'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                projectType: formData.get('project-type'),
+                message: formData.get('message')
+            };
+            
+            // Show loading state
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission
+            setTimeout(() => {
+                // Show success message
+                const successMsg = document.createElement('div');
+                successMsg.className = 'form-success';
+                successMsg.textContent = 'Thank you for your message! We\'ll get back to you within 24 hours.';
+                this.parentNode.insertBefore(successMsg, this);
+                
+                // Reset form
+                this.reset();
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                
+                // Remove success message after 5 seconds
+                setTimeout(() => {
+                    if (successMsg.parentNode) {
+                        successMsg.remove();
+                    }
+                }, 5000);
+                
+            }, 2000);
+        });
+    }
+}
