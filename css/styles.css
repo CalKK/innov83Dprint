@@ -331,6 +331,16 @@ h4 {
     transform: translate(-50%, -50%);
 }
 
+.hero-video iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
 .video-overlay {
     position: absolute;
     top: 0;
@@ -540,6 +550,7 @@ h4 {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     border: 1px solid var(--gray-200);
+    position: relative;
 }
 
 .product-card:hover {
@@ -548,8 +559,9 @@ h4 {
 }
 
 .product-image {
-    height: 250px;
+    height: 300px;
     overflow: hidden;
+    position: relative;
 }
 
 .product-image img {
@@ -563,30 +575,82 @@ h4 {
     transform: scale(1.05);
 }
 
-.product-info {
-    padding: 2rem;
+.product-tooltip {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    padding: 2rem 1rem 1rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    font-size: 0.875rem;
+    line-height: 1.4;
 }
 
-.product-info h3 {
-    margin-bottom: 1rem;
+.product-image:hover .product-tooltip {
+    transform: translateY(0);
+}
+
+/* Contact Section Updates */
+.contact-section {
+    padding: 4rem 0;
+    background: white;
+    text-align: center;
+}
+
+.contact-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-content h3 {
+    margin-bottom: 1.5rem;
     color: var(--gray-800);
 }
 
-.product-info p {
+.contact-content .lead {
+    margin-bottom: 3rem;
+}
+
+.contact-methods {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.contact-method {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: var(--gray-50);
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+    min-width: 300px;
+}
+
+.contact-method:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Testimonials Updates */
+.author-info {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.author-info h4 {
+    margin-bottom: 0.25rem;
+    color: var(--gray-800);
+}
+
+.author-info p {
     color: var(--gray-600);
-    margin-bottom: 1.5rem;
-    line-height: 1.7;
-}
-
-.product-link {
-    color: var(--primary);
-    font-weight: 500;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.product-link:hover {
-    color: var(--primary-dark);
+    font-size: 0.875rem;
 }
 
 .section-cta {

@@ -37,10 +37,11 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-video">
-            <video autoplay muted loop playsinline preload="auto">
-                <source src="https://github.com/CalKK/innov83Dprint/raw/main/gallery/INNOV83DPRINT.mp4" type="video/mp4">
-                
-            </video>
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&loop=1&playlist=dQw4w9WgXcQ&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1" 
+                    frameborder="0" 
+                    allow="autoplay; encrypted-media" 
+                    allowfullscreen>
+            </iframe>
             <div class="video-overlay"></div>
         </div>
         <div class="hero-content">
@@ -105,112 +106,76 @@
             <div class="products-grid" id="products-grid">
                 <!-- Initial 6 products visible by default -->
                 <div class="product-card">
-                    <div class="product-image">
+                    <div class="product-image" data-description="High-precision prototypes for product development and testing">
                         <img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=400" alt="3D Printed Prototype">
-                    </div>
-                    <div class="product-info">
-                        <h3>Custom Prototypes</h3>
-                        <p>High-precision prototypes for product development and testing.</p>
+                        <div class="product-tooltip">High-precision prototypes for product development and testing</div>
                     </div>
                 </div>
                 <div class="product-card">
-                    <div class="product-image">
+                    <div class="product-image" data-description="Detailed scale models for architectural visualization and presentation">
                         <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Architectural Model">
-                    </div>
-                    <div class="product-info">
-                        <h3>Architectural Models</h3>
-                        <p>Detailed scale models for architectural visualization and presentation.</p>
+                        <div class="product-tooltip">Detailed scale models for architectural visualization and presentation</div>
                     </div>
                 </div>
                 <div class="product-card">
-                    <div class="product-image">
+                    <div class="product-image" data-description="Replacement parts and custom components for various applications">
                         <img src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Custom Parts">
-                    </div>
-                    <div class="product-info">
-                        <h3>Custom Parts</h3>
-                        <p>Replacement parts and custom components for various applications.</p>
+                        <div class="product-tooltip">Replacement parts and custom components for various applications</div>
                     </div>
                 </div>
                 <div class="product-card">
-                    <div class="product-image">
+                    <div class="product-image" data-description="Custom decorative pieces and artistic creations">
                         <img src="https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Decorative Items">
-                    </div>
-                    <div class="product-info">
-                        <h3>Decorative Items</h3>
-                        <p>Custom decorative pieces and artistic creations.</p>
+                        <div class="product-tooltip">Custom decorative pieces and artistic creations</div>
                     </div>
                 </div>
                 <div class="product-card">
-                    <div class="product-image">
+                    <div class="product-image" data-description="Custom tools and fixtures designed for specific applications">
                         <img src="https://images.pexels.com/photos/3184317/pexels-photo-3184317.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Functional Tools">
-                    </div>
-                    <div class="product-info">
-                        <h3>Functional Tools</h3>
-                        <p>Custom tools and fixtures designed for specific applications.</p>
+                        <div class="product-tooltip">Custom tools and fixtures designed for specific applications</div>
                     </div>
                 </div>
                 <div class="product-card">
-                    <div class="product-image">
+                    <div class="product-image" data-description="Learning aids and educational models for schools and training">
                         <img src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Educational Models">
-                    </div>
-                    <div class="product-info">
-                        <h3>Educational Models</h3>
-                        <p>Learning aids and educational models for schools and training.</p>
+                        <div class="product-tooltip">Learning aids and educational models for schools and training</div>
                     </div>
                 </div>
                 <!-- Hidden products that will be shown when "View More" is clicked -->
                 <div class="product-card hidden-product">
-                    <div class="product-image">
+                    <div class="product-image" data-description="Anatomical models and medical device prototypes">
                         <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Medical Models">
-                    </div>
-                    <div class="product-info">
-                        <h3>Medical Models</h3>
-                        <p>Anatomical models and medical device prototypes.</p>
+                        <div class="product-tooltip">Anatomical models and medical device prototypes</div>
                     </div>
                 </div>
                 <div class="product-card hidden-product">
-                    <div class="product-image">
+                    <div class="product-image" data-description="Custom jewelry pieces and fashion accessories">
                         <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Jewelry Pieces">
-                    </div>
-                    <div class="product-info">
-                        <h3>Jewelry & Accessories</h3>
-                        <p>Custom jewelry pieces and fashion accessories.</p>
+                        <div class="product-tooltip">Custom jewelry pieces and fashion accessories</div>
                     </div>
                 </div>
                 <div class="product-card hidden-product">
-                    <div class="product-image">
+                    <div class="product-image" data-description="Detailed miniature figures and collectibles">
                         <img src="https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Miniatures">
-                    </div>
-                    <div class="product-info">
-                        <h3>Miniatures</h3>
-                        <p>Detailed miniature figures and collectibles.</p>
+                        <div class="product-tooltip">Detailed miniature figures and collectibles</div>
                     </div>
                 </div>
                 <div class="product-card hidden-product">
-                    <div class="product-image">
+                    <div class="product-image" data-description="Heavy-duty industrial parts and machinery components">
                         <img src="https://images.pexels.com/photos/3183156/pexels-photo-3183156.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Industrial Parts">
-                    </div>
-                    <div class="product-info">
-                        <h3>Industrial Components</h3>
-                        <p>Heavy-duty industrial parts and machinery components.</p>
+                        <div class="product-tooltip">Heavy-duty industrial parts and machinery components</div>
                     </div>
                 </div>
                 <div class="product-card hidden-product">
-                    <div class="product-image">
+                    <div class="product-image" data-description="Unique art pieces and sculptural works">
                         <img src="https://images.pexels.com/photos/3183159/pexels-photo-3183159.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Art Pieces">
-                    </div>
-                    <div class="product-info">
-                        <h3>Artistic Creations</h3>
-                        <p>Unique art pieces and sculptural works.</p>
+                        <div class="product-tooltip">Unique art pieces and sculptural works</div>
                     </div>
                 </div>
                 <div class="product-card hidden-product">
-                    <div class="product-image">
+                    <div class="product-image" data-description="Custom gaming pieces and tabletop accessories">
                         <img src="https://images.pexels.com/photos/3183162/pexels-photo-3183162.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Gaming Accessories">
-                    </div>
-                    <div class="product-info">
-                        <h3>Gaming Accessories</h3>
-                        <p>Custom gaming pieces and tabletop accessories.</p>
+                        <div class="product-tooltip">Custom gaming pieces and tabletop accessories</div>
                     </div>
                 </div>
             </div>
@@ -315,12 +280,9 @@
                                 </svg>
                             </div>
                             <p class="testimonial-text">"Innov83Dprint delivered exceptional quality on our architectural model project. Their attention to detail and professional service exceeded our expectations. Highly recommended!"</p>
-                            <div class="testimonial-author">
-                                <img src="https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=150" alt="Sarah Kimani">
-                                <div class="author-info">
-                                    <h4>Sarah Kimani</h4>
-                                    <p>Architect, Design Studios Kenya</p>
-                                </div>
+                            <div class="author-info">
+                                <h4>Sarah Kimani</h4>
+                                <p>Architect, Design Studios Kenya</p>
                             </div>
                         </div>
                     </div>
@@ -333,12 +295,9 @@
                                 </svg>
                             </div>
                             <p class="testimonial-text">"The custom prototypes we received were perfect for our product development process. Fast turnaround time and excellent communication throughout the project."</p>
-                            <div class="testimonial-author">
-                                <img src="https://images.pexels.com/photos/2182969/pexels-photo-2182969.jpeg?auto=compress&cs=tinysrgb&w=150" alt="Michael Ochieng">
-                                <div class="author-info">
-                                    <h4>Michael Ochieng</h4>
-                                    <p>Product Manager, Tech Innovations Ltd</p>
-                                </div>
+                            <div class="author-info">
+                                <h4>Michael Ochieng</h4>
+                                <p>Product Manager, Tech Innovations Ltd</p>
                             </div>
                         </div>
                     </div>
@@ -351,12 +310,9 @@
                                 </svg>
                             </div>
                             <p class="testimonial-text">"Outstanding service and quality work. The educational models they created for our school have been invaluable for student learning. Professional and reliable team."</p>
-                            <div class="testimonial-author">
-                                <img src="https://images.pexels.com/photos/2182975/pexels-photo-2182975.jpeg?auto=compress&cs=tinysrgb&w=150" alt="Grace Wanjiku">
-                                <div class="author-info">
-                                    <h4>Grace Wanjiku</h4>
-                                    <p>Head Teacher, Nairobi Academy</p>
-                                </div>
+                            <div class="author-info">
+                                <h4>Grace Wanjiku</h4>
+                                <p>Head Teacher, Nairobi Academy</p>
                             </div>
                         </div>
                     </div>
@@ -389,36 +345,34 @@
                 <h2>Get In Touch</h2>
                 <p>Ready to bring your ideas to life? Let's discuss your project</p>
             </div>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>Let's Start a Conversation</h3>
-                    <p class="lead">Whether you need a prototype, custom parts, or have a unique project in mind, our team is ready to help make it happen.</p>
-                    
-                    <div class="contact-methods">
-                        <div class="contact-method">
-                            <div class="method-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                                    <polyline points="22,6 12,13 2,6"/>
-                                </svg>
-                            </div>
-                            <div class="method-details">
-                                <h4>Email Us</h4>
-                                <p><a href="mailto:afterlifebatteries@gmail.com" style="color: var(--primary); text-decoration: none;">afterlifebatteries@gmail.com</a></p>
-                                <span>We'll respond within 24 hours</span>
-                            </div>
+            <div class="contact-content">
+                <h3>Let's Start a Conversation</h3>
+                <p class="lead">Whether you need a prototype, custom parts, or have a unique project in mind, our team is ready to help make it happen.</p>
+                
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <div class="method-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
                         </div>
-                        <div class="contact-method">
-                            <div class="method-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                                </svg>
-                            </div>
-                            <div class="method-details">
-                                <h4>Call Us</h4>
-                                <p><a href="https://wa.me/254714248747" target="_blank" style="color: var(--primary); text-decoration: none;">+254 (0) 714248747</a></p>
-                                <span>Mon-Sat, 9 AM - 6 PM EAT</span>
-                            </div>
+                        <div class="method-details">
+                            <h4>Email Us</h4>
+                            <p><a href="mailto:afterlifebatteries@gmail.com" style="color: var(--primary); text-decoration: none;">afterlifebatteries@gmail.com</a></p>
+                            <span>We'll respond within 24 hours</span>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="method-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                        </div>
+                        <div class="method-details">
+                            <h4>Call Us</h4>
+                            <p><a href="https://wa.me/254714248747" target="_blank" style="color: var(--primary); text-decoration: none;">+254 (0) 714248747</a></p>
+                            <span>Mon-Sat, 9 AM - 6 PM EAT</span>
                         </div>
                     </div>
                 </div>
