@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initAnimations();
     initProductPagination();
     initTestimonialsCarousel();
-    initContactForm();
 });
 
 // Navigation functionality
@@ -98,39 +97,6 @@ function initAnimations() {
     document.querySelectorAll('.feature-card, .product-card, .team-member, .case-study').forEach(el => {
         observer.observe(el);
     });
-
-    // Counter animation for stats
-    const statNumbers = document.querySelectorAll('.stat-number');
-    const statsObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateCounter(entry.target);
-                statsObserver.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    statNumbers.forEach(stat => {
-        statsObserver.observe(stat);
-    });
-}
-
-// Counter animation
-function animateCounter(element) {
-    const target = element.textContent.replace(/[^\d]/g, '');
-    const duration = 2000;
-    const increment = target / (duration / 16);
-    let current = 0;
-    
-    const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-            element.textContent = element.textContent.replace(/[\d,]+/, target.toLocaleString());
-            clearInterval(timer);
-        } else {
-            element.textContent = element.textContent.replace(/[\d,]+/, Math.floor(current).toLocaleString());
-        }
-    }, 16);
 }
 
 // Product pagination functionality
@@ -213,56 +179,6 @@ function initTestimonialsCarousel() {
         // Update indicators
         indicators.forEach((indicator, index) => {
             indicator.classList.toggle('active', index === currentSlide);
-        });
-    }
-}
-
-// Contact form functionality
-function initContactForm() {
-    const contactForm = document.getElementById('contact-form');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const data = {
-                firstName: formData.get('first-name'),
-                lastName: formData.get('last-name'),
-                email: formData.get('email'),
-                phone: formData.get('phone'),
-                projectType: formData.get('project-type'),
-                message: formData.get('message')
-            };
-            
-            // Show loading state
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-            
-            // Simulate form submission
-            setTimeout(() => {
-                // Show success message
-                const successMsg = document.createElement('div');
-                successMsg.className = 'form-success';
-                successMsg.textContent = 'Thank you for your message! We\'ll get back to you within 24 hours.';
-                this.parentNode.insertBefore(successMsg, this);
-                
-                // Reset form
-                this.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-                
-                // Remove success message after 5 seconds
-                setTimeout(() => {
-                    if (successMsg.parentNode) {
-                        successMsg.remove();
-                    }
-                }, 5000);
-                
-            }, 2000);
         });
     }
 }
