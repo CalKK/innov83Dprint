@@ -105,7 +105,18 @@ h4 {
     align-items: center;
     height: 4rem;
 }
+.nav-logo {
+  display: flex;
+  align-items: center;
+}
 
+.nav-logo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 12px;
+}    
 .nav-logo h2 {
     color: var(--primary);
     font-weight: 700;
