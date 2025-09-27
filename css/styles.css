@@ -103,7 +103,6 @@ h4 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 4rem;
 }
 .nav-logo {
   display: flex;
