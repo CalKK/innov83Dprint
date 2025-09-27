@@ -1474,8 +1474,8 @@ h4 {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 20px;
+  height: 20px;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   color: var(--light-color);
@@ -1484,7 +1484,7 @@ h4 {
 
 .social-icons a:hover {
   background-color: var(--primary-color);
-  transform: translateY(-5px);
+  transform: translateY(-3px);
 }
 
 
