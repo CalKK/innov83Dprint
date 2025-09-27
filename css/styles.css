@@ -864,6 +864,7 @@ h4 {
 .company-story {
     padding: 6rem 0;
     background: white;
+    align-items: center;
 }
 
 .story-grid {
