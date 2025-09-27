@@ -1471,10 +1471,10 @@ h4 {
 }
 
 .social-links a {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 4rem;
+    height: 4rem;
     background: var(--gray-800);
-    border-radius: 0.5rem;
+    border-radius: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1485,7 +1485,7 @@ h4 {
 .social-links a:hover {
     background: var(--primary);
     color: white;
-    transform: translateY(-2px);
+    transform: translateY(-8px);
 }
 
 
