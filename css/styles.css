@@ -1469,23 +1469,21 @@ h4 {
     display: flex;
     gap: 5rem;
 }
-
-.social-links a {
-    width: 40rem;
-    height: 40rem;
-    background: var(--gray-800);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--gray-300);
-    transition: all 0.3s ease;
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: var(--light-color);
+  transition: var(--transition);
 }
 
-.social-links a:hover {
-    background: var(--primary);
-    color: white;
-    transform: translateY(-8px);
+.social-icons a:hover {
+  background-color: var(--primary-color);
+  transform: translateY(-10px);
 }
 
 
