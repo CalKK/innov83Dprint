@@ -1467,14 +1467,14 @@ h4 {
 
 .social-links {
     display: flex;
-    gap: 1rem;
+    gap: 5rem;
 }
 
 .social-links a {
-    width: 4rem;
-    height: 4rem;
+    width: 40rem;
+    height: 40rem;
     background: var(--gray-800);
-    border-radius: 1rem;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
